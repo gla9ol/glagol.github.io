@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My info</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background:black;min-height:100vh;font-family:system-ui,'Segoe UI',Roboto,sans-serif;overflow-x:hidden;}
+        @font-face{font-family:'MyFont';src:url('Broadsheet.ttf')format('truetype');}
+        .slideshow-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;}
+        .slideshow-bg img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:none;}
+        .slideshow-bg img.active{display:block;}
+        .main-content{min-height:100vh;display:flex;justify-content:center;align-items:center;padding:2rem;position:relative;z-index:2;}
+        .center{text-align:center;background:rgba(0,0,0,0.15);padding:2rem 2.5rem;border-radius:0;backdrop-filter:blur(3px);}
+        .main-text{font-family:'MyFont',sans-serif;font-size:1.3rem;line-height:2.2;color:black;text-shadow:0 0 5px white;}
+        .main-text p{margin:0.7rem 0;}
+        .art-credit{position:fixed;bottom:12px;left:16px;color:black;font-size:1.3rem;font-family:'MyFont',sans-serif;}
+    </style>
+</head>
+<body>
+    <div class="slideshow-bg" id="slideshow">
+        <img src="1.png" alt="bg1" id="img1">
+        <img src="2.png" alt="bg2" id="img2">
+        <img src="3.png" alt="bg3" id="img3">
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="center">
+            <div class="main-text">
+                <p style="color:#0004ff;font-weight:bold;">INFO:</p>
+                <p>Glagol / glag</p>
+                <p>Any prns</p>
+                <p>RU | UTC + 3</p>
+                <p>__ y.o</p>
+                <br>
+                <p style="color:#0004ff;font-weight:bold;">MY SKILLS (i'll add my portfolio soon!):</p>
+                <p>Haxe coder (working on Codename Engine only!)</p>
+                <p>Composer</p>
+                <p>Animator (nahh i'm not artist)</p>
+                <br>
+                <p style="color:#0004ff;font-weight:bold;">MY SOCIALS (not all):</p>
+                <p><a href="https://www.youtube.com/@GlaG0l" target="_blank" style="color:rgb(196,48,43);text-decoration:none;">YouTube</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="art-credit">art by Nem !</div>
+    <script>
+        const img1=document.getElementById('img1'),img2=document.getElementById('img2'),img3=document.getElementById('img3'),images=[img1,img2,img3];
+        let i=0;
+        images[i].classList.add('active');
+        setInterval(()=>{images[i].classList.remove('active');i=(i+1)%images.length;images[i].classList.add('active');},500);
+    </script>
+</body>
+</html>
